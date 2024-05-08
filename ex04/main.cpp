@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 20:12:42 by tlassere          #+#    #+#             */
-/*   Updated: 2024/05/08 20:39:37 by tlassere         ###   ########.fr       */
+/*   Updated: 2024/05/08 20:56:15 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 static int	ft_launch(char **argv)
 {
-	FileData	file(argv[0], argv[1], argv[2]);
-	int			status;
+	int				status;
+	FileData		fdata(argv[0], argv[1], argv[2]);
+	//std::fstream	file;
+	//std::fstream	file_replace;
 
+
+	(void)fdata;
 	status = SUCCESS;
-	(void)file;
 	return (status);
 }
 
