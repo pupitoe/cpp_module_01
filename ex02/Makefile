@@ -5,15 +5,15 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/03/23 17:48:40 by tlassere          #+#    #+#              #
-#    Updated: 2024/05/08 16:47:56 by tlassere         ###   ########.fr        #
+#    Created: 2024/05/08 16:47:44 by tlassere          #+#    #+#              #
+#    Updated: 2024/05/08 16:49:02 by tlassere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX			::= c++
 CXXFLAGS	::= -Wall -Wextra -Werror -std=c++98
-NAME		::= Moar_brainz
-SOURCES		::= main.cpp newZombie.cpp zombieHorde.cpp Zombie.cpp
+NAME		::= HI_THIS_IS_BRAIN
+SOURCES		::= main.cpp
 OBJS		::= $(SOURCES:.cpp=.o)
 
 all: $(NAME)
