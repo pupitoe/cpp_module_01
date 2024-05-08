@@ -6,34 +6,38 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 18:33:56 by tlassere          #+#    #+#             */
-/*   Updated: 2024/05/07 19:32:40 by tlassere         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:45:46 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-int	main(int parker, char **pierrre)
+void	ft_display_zombie_horde(int n, std::string name)
 {
-	Zombie	*tom_tom;
-	Zombie	*pir;
+	int		i;
+	Zombie	original;
+	Zombie	*hord;
 
-	Zombie tom("tom");
-	tom_tom = tom.newZombie("dah");
-	tom.announce();
-	if (tom_tom)
+	hord = original.zombieHorde(n, name);
+	i = 0;
+	if (hord)
 	{
-		tom_tom->announce();
-		pir = tom_tom->newZombie("pi2r");
-		if (pir)
+		while (i < n)
 		{
-			pir->randomChump("bakamitae");
-			pir->announce();
-			delete pir;
+			hord[i].announce();
+			i++;
 		}
-		delete tom_tom;
+		delete [] hord;
 	}
-	tom.randomChump("polo");
-	if (parker == static_cast<int> (parker) && pierrre[parker] == NULL)
-		return (0);
+}
+
+int	main(void)
+{
+	Zombie	origina;
+
+	ft_display_zombie_horde(69, "PI2R");
+	ft_display_zombie_horde(2, "Florian le bg cosmic");
+	origina.zombieHorde(0, "kwiwi");
+	origina.zombieHorde(-69, "kwiwicosmic");
 	return (0);
 }

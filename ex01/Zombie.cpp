@@ -6,15 +6,15 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 18:33:42 by tlassere          #+#    #+#             */
-/*   Updated: 2024/05/07 19:37:59 by tlassere         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:19:51 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie( std::string name )
+Zombie::Zombie( void )
 {
-	this->name = name;
+	this->name = "chris";
 	return ;
 }
 
@@ -31,8 +31,15 @@ void	Zombie::announce( void )
 
 void	Zombie::randomChump( std::string name )
 {
-	Zombie	chump(name);
+	Zombie	chump;
 	
+	chump.ft_set_name(name);
 	chump.announce();
+	return ;
+}
+
+void	Zombie::ft_set_name(std::string name)
+{
+	this->name = name;
 	return ;
 }
