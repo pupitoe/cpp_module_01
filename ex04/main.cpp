@@ -15,12 +15,12 @@
 static void	ft_push(std::fstream& out, FileData& fdata,
 	std::string& push_string)
 {
-	if (fdata.get_word().rfind(push_string, 0) == 0)
+	if (fdata.get_word().rfind(push_string, START_PUSH_STRING) == 0)
 	{
 		if (fdata.get_word().length() == push_string.length())
 		{
-			push_string = "";
 			out << fdata.get_word_replace().c_str();
+			push_string = "";
 		}
 	}
 	else

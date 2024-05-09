@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 20:28:34 by tlassere          #+#    #+#             */
-/*   Updated: 2024/05/08 20:48:44 by tlassere         ###   ########.fr       */
+/*   Updated: 2024/05/09 17:45:44 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 # define SUCCESS 0
 # define FAIL 1
+# define START_PUSH_STRING 0
 
 class	FileData
 {

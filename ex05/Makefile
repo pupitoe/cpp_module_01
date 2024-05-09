@@ -6,14 +6,14 @@
 #    By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/08 20:08:55 by tlassere          #+#    #+#              #
-#    Updated: 2024/05/09 17:49:03 by tlassere         ###   ########.fr        #
+#    Updated: 2024/05/09 17:47:41 by tlassere         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CXX			::= c++
 CXXFLAGS	::= -Wall -Wextra -Werror -std=c++98
-NAME		::= Sed_is_for_losers
-SOURCES		::= main.cpp FileData.class.cpp
+NAME		::= Harl_2_0
+SOURCES		::= main.cpp
 OBJS		::= $(SOURCES:.cpp=.o)
 
 all: $(NAME)
