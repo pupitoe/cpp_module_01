@@ -12,15 +12,44 @@
 
 #include "FileData.class.hpp"
 
+static void	ft_push(std::fstream& out, FileData& fdata,
+	std::string& push_string)
+{
+	if (fdata.get_word().rfind(push_string, 0) == 0)
+	{
+		if (fdata.get_word().length() == push_string.length())
+		{
+			push_string = "";
+			out << fdata.get_word_replace().c_str();
+		}
+	}
+	else
+	{
+		out << push_string.c_str();
+		push_string = "";
+	}
+}
+
 static int	ft_replaced(std::fstream& in, std::fstream& out, FileData& fdata)
 {
-	int	status;
+	int			status;
+	char		car;
+	std::string	push_string;
 
-	status = SUCCESS;
-	//in << "kiwi conmic \n";
-	out.write("kiki", 4);
-	(void)in;
-	(void)fdata;
+	push_string = "";
+	status = FAIL;
+	while (in.fail() == 0 && out.fail() == 0 && in.eof() == 0)
+	{
+		if (in.read(&car, 1))
+		{
+			push_string += car;
+			ft_push(out, fdata, push_string);
+		}
+	}
+	if (in.eof() == 1 && out.fail() == 0 && push_string.length())
+		out << push_string.c_str();
+	if ((in.fail() == 0 || in.eof() == 1) && out.fail() == 0)
+		status = SUCCESS;
 	return (status);
 }
 
