@@ -6,11 +6,23 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/08 20:12:42 by tlassere          #+#    #+#             */
-/*   Updated: 2024/05/09 14:52:12 by tlassere         ###   ########.fr       */
+/*   Updated: 2024/05/09 16:21:31 tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FileData.class.hpp"
+
+static int	ft_replaced(std::fstream& in, std::fstream& out, FileData& fdata)
+{
+	int	status;
+
+	status = SUCCESS;
+	//in << "kiwi conmic \n";
+	out.write("kiki", 4);
+	(void)in;
+	(void)fdata;
+	return (status);
+}
 
 static int	ft_launch(char **argv)
 {
@@ -24,10 +36,10 @@ static int	ft_launch(char **argv)
 	if (file_in.fail() == 0)
 	{
 		file_out.open(fdata.get_file_replace().c_str(), std::fstream::out);
-		if (file_in.fail() == 0)
+		if (file_out.fail() == 0)
 		{
-			status = SUCCESS;
-			file_in.close();
+			status = ft_replaced(file_in, file_out, fdata); 
+			file_out.close();
 		}
 		file_in.close();
 	}
