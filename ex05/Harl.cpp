@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 18:14:21 by tlassere          #+#    #+#             */
-/*   Updated: 2024/05/09 20:02:30 by tlassere         ###   ########.fr       */
+/*   Updated: 2024/05/09 20:16:00 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,14 @@
 
 Harl::Harl( void )
 {
+	this->message[0].func = &Harl::warning;
+	this->message[0].val = "WARNING";
+	this->message[1].func = &Harl::info;
+	this->message[1].val = "INFO";
+	this->message[2].func = &Harl::debug;
+	this->message[2].val = "DEBUG";
+	this->message[3].func = &Harl::error;
+	this->message[3].val = "ERROR";
 	return ;
 }
 
@@ -52,13 +60,26 @@ void	Harl::warning( void )
 	return ;
 }
 
+void	Harl::no_level( void )
+{
+	std::cout << "[ Probably complaining about insignificant problems ]\n";
+	return ;
+}
+
 void	Harl::complain( std::string level )
 {
 	Harl	call;
-	int		pos;
+	int		i;
 	void	(Harl::*func)();
 
-	pos = 0;
+	i = 0;
+	func = &Harl::no_level;
+	while (i < 4 && func != &Harl::no_level)
+	{
+		if (level == this->message[i].val)
+			func = this->message[i].func;
+		i++;
+	}
 	func = &Harl::warning;
 	(call.*func)();
 }

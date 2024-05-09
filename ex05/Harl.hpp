@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 18:00:07 by tlassere          #+#    #+#             */
-/*   Updated: 2024/05/09 20:01:21 by tlassere         ###   ########.fr       */
+/*   Updated: 2024/05/09 20:14:24 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class	Harl
 		void			warning( void );
 		void			info( void );
 		void			error( void );
+		void			no_level( void );
 		struct s_func	message[4];
 		
 
