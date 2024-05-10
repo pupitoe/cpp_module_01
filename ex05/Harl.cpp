@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 18:14:21 by tlassere          #+#    #+#             */
-/*   Updated: 2024/05/09 20:16:00 by tlassere         ###   ########.fr       */
+/*   Updated: 2024/05/10 13:07:20 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 Harl::Harl( void )
 {
-	this->message[0].func = &Harl::warning;
-	this->message[0].val = "WARNING";
-	this->message[1].func = &Harl::info;
-	this->message[1].val = "INFO";
-	this->message[2].func = &Harl::debug;
-	this->message[2].val = "DEBUG";
-	this->message[3].func = &Harl::error;
-	this->message[3].val = "ERROR";
+	this->func[0] = &Harl::debug;
+	this->message[0] = "DEBUG";
+	this->func[1] = &Harl::info;
+	this->message[1] = "INFO";
+	this->func[2] = &Harl::warning;
+	this->message[2] = "WARNING";
+	this->func[3] = &Harl::error;
+	this->message[3] = "ERROR";
 	return ;
 }
 
@@ -32,7 +32,7 @@ Harl::~Harl( void )
 
 void	Harl::debug( void )
 {
-	std::cout << " love having extra bacon for my ";
+	std::cout << "I love having extra bacon for my ";
 	std::cout << "7XL-double-cheese-triple-pickle-special-ketchup burger. ";
 	std::cout << "I really do!\n";
 	return ;
@@ -40,7 +40,7 @@ void	Harl::debug( void )
 
 void	Harl::info( void )
 {
-	std::cout << " cannot believe adding extra bacon costs more money. ";
+	std::cout << "I cannot believe adding extra bacon costs more money. ";
 	std::cout << "You didn't put enough bacon in my burger! ";
 	std::cout << "If you did, I wouldn't be asking for more!\n";
 	return ;
@@ -74,12 +74,11 @@ void	Harl::complain( std::string level )
 
 	i = 0;
 	func = &Harl::no_level;
-	while (i < 4 && func != &Harl::no_level)
+	while (i < 4 && func == &Harl::no_level)
 	{
-		if (level == this->message[i].val)
-			func = this->message[i].func;
+		if (level == this->message[i])
+			func = this->func[i];
 		i++;
 	}
-	func = &Harl::warning;
 	(call.*func)();
 }

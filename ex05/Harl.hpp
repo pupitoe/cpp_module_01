@@ -6,7 +6,7 @@
 /*   By: tlassere <tlassere@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/09 18:00:07 by tlassere          #+#    #+#             */
-/*   Updated: 2024/05/09 20:14:24 by tlassere         ###   ########.fr       */
+/*   Updated: 2024/05/10 12:39:19 by tlassere         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define HARL_HPP
 
 # include <iostream>
-
-struct	s_func;
 
 class	Harl
 {
@@ -25,7 +23,8 @@ class	Harl
 		void			info( void );
 		void			error( void );
 		void			no_level( void );
-		struct s_func	message[4];
+		std::string		message[4];
+		void			(Harl::*func[4])();
 		
 
 	public:
@@ -33,12 +32,6 @@ class	Harl
 		~Harl( void );
 
 		void	complain( std::string level );
-};
-
-struct s_func
-{
-	std::string	val;
-	void	(Harl::*func)();
 };
 
 #endif
